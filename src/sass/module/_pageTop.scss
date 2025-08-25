@@ -1,0 +1,79 @@
+@use 'global' as *;
+
+#pageTop {
+	position: fixed;
+	z-index: 9999;
+	right: my-rem(15);
+	bottom: my-rem(15);
+	@include mq(md) {
+		right: my-rem(20);
+		bottom: my-rem(20);
+	}
+}
+
+#pageTop a {
+	content: '';
+	border-radius: 50%;
+	width: my-rem(40);
+	height: my-rem(40);
+	color: $brown;
+	background-color: $base2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@include mq(md) {
+		width: my-rem(80);
+		height: my-rem(80);
+	}
+}
+#pageTop svg {
+	width: 70%;
+	height: 70%;
+}
+/*//////////////////////////////////////
+アニメーション
+/////////////////////////////////////*/
+/*リンクを右下に固定*/
+#pageTop {
+	position: fixed;
+	right: 10px;
+	z-index: 900;
+	/*はじめは非表示*/
+	opacity: 0;
+	transform: translateY(100px);
+}
+
+/*　上に上がる動き　*/
+
+#pageTop.UpMove {
+	animation: UpAnime 0.5s forwards;
+}
+@keyframes UpAnime {
+	from {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/*　下に下がる動き　*/
+
+#pageTop.DownMove {
+	animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(100px);
+	}
+}
+/*//////////////////////////////////////
+終了
+/////////////////////////////////////*/

@@ -1,0 +1,57 @@
+@use 'sass:math';
+
+// インナー幅設定
+// コンテンツのインナー幅（最も共通の幅が多い部分）
+$inner: 1080px;
+// ※キュンパス幅ではなくインナーの幅を指す
+
+// 余白
+$padding-pc: 25px;
+$padding-sp: 15px;
+
+////////////////////
+// フォント設定
+////////////////////
+
+$jp-font-family1: 'Noto Sans JP', sans-serif;
+$jp-font-family2: 'Noto Serif JP', serif;
+$en-font-family1: 'Montserrat', sans-serif;
+$en-font-family2: 'Playwrite AU SA', sans-serif;
+// ※検証ツールでしっかり反映されているか確認する
+
+// フォントウェイト
+$regular: 300;
+$normal: 400;
+$medium: 500;
+$bold: 700;
+
+////////////////////
+// 色の指定
+////////////////////
+
+//色指定（共通性のあるものは出来る限り指定すると良い）
+$black: #111111;
+$white: #ffffff;
+$white2: #f2f2f2;
+$brown: #754e1a;
+$brown2: #b6cbbd;
+$dark-green: #123524;
+$gray: #796a64;
+$red: #c94800;
+$base: #f8e1b7;
+$base2: #f5ecd5;
+
+body {
+	font-family: $jp-font-family1;
+	color: $dark-green;
+	overflow-x: hidden;
+	background-color: $base;
+}
+body.active {
+	overflow: hidden;
+	height: 100vh;
+}
+h1:hover {
+	transform: scale(1.05);
+	cursor: pointer;
+}

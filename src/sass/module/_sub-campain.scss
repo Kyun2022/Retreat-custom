@@ -1,0 +1,49 @@
+@use 'global' as *;
+
+.sub-campaign {
+	position: relative;
+}
+
+.sub-campaign__decoration {
+	position: absolute;
+	top: my-rem(-25);
+	left: my-rem(15);
+	width: my-rem(120);
+	height: my-rem(55);
+	z-index: -1;
+	@include mq(md) {
+		top: my-rem(-71);
+		width: my-rem(301);
+		height: my-rem(138);
+		left: calc(50% - min(47.9166vw, 38.75rem));
+	}
+}
+
+.sub-campaign__menu {
+	margin-top: my-rem(40);
+
+  width: 100%;
+  max-width: 100%;
+
+	@include mq(md) {
+		padding-right: initial;
+		padding-left: initial;
+	}
+}
+
+.sub-campaign__items {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: my-rem(40);
+	@include mq(md) {
+		grid-template-columns: repeat(2, 1fr);
+		row-gap: my-rem(80);
+	}
+}
+
+.sub-campaign__pageNation {
+	margin-top: my-rem(79);
+	@include mq(md) {
+		margin-top: my-rem(82);
+	}
+}

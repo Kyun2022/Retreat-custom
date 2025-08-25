@@ -1,0 +1,87 @@
+@use 'global' as *;
+
+.accordion__items {
+	display: flex;
+	flex-direction: column;
+}
+
+.accordion__item:not(:first-child) {
+	margin-top: my-rem(40);
+}
+
+.accordion__title {
+	position: relative;
+	color: $base2;
+	background-color: $brown;
+	font-family: $jp-font-family1;
+	font-weight: $normal;
+	font-size: my-rem(16);
+	padding: my-rem(16) my-rem(60) my-rem(16) my-rem(16);
+	@include mq(md) {
+		border-radius: my-rem(20);
+		font-size: my-rem(20);
+		padding: my-rem(25) my-rem(100) my-rem(25) my-rem(40);
+	}
+}
+
+/* 縦線 */
+.accordion__title::before {
+	background: $white;
+	content: '';
+	width: my-rem(28);
+	height: my-rem(1);
+	position: absolute;
+	top: 50%;
+	right: my-rem(16);
+	transform: rotate(0deg);
+	transition: transform 0.3s ease-in-out;
+	@include mq(md) {
+		width: my-rem(32);
+		right: my-rem(40);
+	}
+}
+/* 横線 */
+.accordion__title::after {
+	background: $white;
+	content: '';
+	width: my-rem(28);
+	height: my-rem(1);
+	position: absolute;
+	right: my-rem(16);
+	top: 50%;
+	transition: opacity 0.3s ease-in-out;
+	opacity: 0;
+	@include mq(md) {
+		width: my-rem(32);
+		right: my-rem(40);
+	}
+}
+/* 縦線(クリック後) */
+.accordion__title.open::before {
+	transform: rotate(90deg);
+}
+/* 横線(クリック後) */
+.accordion__title.open::after {
+	opacity: 1;
+}
+
+.accordion__content {
+	padding: my-rem(22) my-rem(16);
+	border: 1px solid $brown;
+	background-color: $base2;
+	@include mq(md) {
+		border-radius: my-rem(20);
+		margin-top: my-rem(16);
+		padding: my-rem(39);
+	}
+}
+.accordion__content-text {
+	color: $dark-green;
+	font-family: $jp-font-family1;
+	font-size: my-rem(16);
+	font-weight: $normal;
+	line-height: 1.45;
+}
+.accordion__content--all-none {
+	display: none;
+}

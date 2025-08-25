@@ -1,0 +1,24 @@
+@use "global" as *;
+
+.breadcrumb {
+  margin-top: my-rem(8);
+}
+.breadcrumb-text {
+  color: $dark-green;
+  font-family: $jp-font-family1;
+  font-size: my-rem(14);
+  font-weight: $normal;
+}
+.breadcrumb-text--white {
+  color: $white;
+}
+
+.breadcrumb__arrow{
+    display:inline-block;
+    margin: 0 my-rem(8);
+}
+
+.breadcrumb--404{
+  position: relative;
+  z-index: 1;
+}

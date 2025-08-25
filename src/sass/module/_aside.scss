@@ -1,0 +1,91 @@
+@use 'global' as *;
+
+.aside {
+}
+
+.aside__popular-box {
+	display: flex;
+	flex-direction: column;
+}
+.aside__popular-items {
+	margin-top: my-rem(22);
+}
+
+.aside__title {
+	width: my-rem(294);
+	padding: my-rem(7.5);
+	position: relative;
+}
+
+.aside__title::before {
+	position: absolute;
+	display: inline-block;
+	content: '';
+	top: 0;
+	left: 0;
+	width: my-rem(8);
+	height: my-rem(50);
+	background-color: $brown;
+}
+
+.aside__title-text {
+	padding-left: my-rem(75);
+	color: $dark-green;
+	font-family: $jp-font-family1;
+	font-size: my-rem(24);
+	font-weight: $normal;
+}
+.aside__title-text::after {
+	content: '';
+	display: inline-block;
+	background-image: url(../images/common/tent.webp);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: my-rem(50);
+	height: my-rem(50);
+	position: absolute;
+	top: 0;
+	left: my-rem(24);
+}
+.aside__popular-item:not(:first-child) {
+	margin-top: my-rem(24);
+}
+
+.aside__popular-item.card {
+	padding: my-rem(16);
+}
+.aside__popular-item a {
+	display: flex;
+}
+
+.aside__popular-item:hover {
+	opacity: 0.5;
+	transition: opacity 0.3s;
+}
+.aside__review {
+	margin-top: my-rem(80);
+	@include mq(md) {
+		margin-top: my-rem(82);
+	}
+}
+
+.aside__box {
+	display: flex;
+	flex-direction: column;
+}
+
+.aside__campaign {
+	margin-top: my-rem(84);
+}
+
+.aside__container {
+	margin-top: my-rem(24);
+}
+
+.aside__archive {
+	margin-top: my-rem(86);
+	@include mq(md) {
+		margin-top: my-rem(84);
+	}
+}

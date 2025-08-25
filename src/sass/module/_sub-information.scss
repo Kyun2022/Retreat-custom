@@ -1,0 +1,40 @@
+@use "global" as *;
+
+.sub-information {
+  position: relative;
+}
+.sub-information_inner {
+  max-width: my-rem(600);
+  width: 100%;
+  position: relative;
+}
+.sub-information__decoration {
+  position: absolute;
+  top: my-rem(-25);
+  left: my-rem(15);
+  width: my-rem(120);
+  height: my-rem(55);
+  z-index: -1;
+  @include mq(md) {
+    top: my-rem(-71);
+    width: my-rem(301);
+    height: my-rem(138);
+    left: calc(50% - min(47.9166vw, 38.75rem));
+  }
+}
+.sub-information__tab {
+  display: flex;
+  justify-content: center;
+  gap: my-rem(19);
+  @include mq(md) {
+    justify-content: initial;
+    gap: calc((90 / 1100) * 100%);
+  }
+}
+
+.sub-information__items {
+  margin-top: my-rem(14);
+  @include mq(md) {
+    margin-top: my-rem(24);
+  }
+}

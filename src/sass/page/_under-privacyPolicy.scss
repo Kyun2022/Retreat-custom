@@ -1,0 +1,8 @@
+@use "global" as *;
+
+.under-privacyPolicy {
+  margin-top: my-rem(52);
+  @include mq(md) {
+    margin-top: my-rem(150);
+  }
+}

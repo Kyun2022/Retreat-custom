@@ -1,0 +1,65 @@
+@use 'global' as *;
+
+.tab {
+	width: fit-content;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: my-rem(17);
+	width: 100%;
+	max-width: my-rem(345);
+	margin-right: auto;
+	margin-left: auto;
+
+	@include mq(md) {
+		grid-template-columns: repeat(4, 1fr);
+		max-width: my-rem(744);
+		gap: my-rem(30);
+		margin-right: initial;
+		margin-left: initial;
+	}
+}
+.tab__text {
+	border-radius: my-rem(30);
+	text-align: center;
+	padding: my-rem(10);
+	width: my-rem(162);
+	border: 1px solid $brown;
+	color: $brown;
+	line-height: calc(22 / 14);
+	background-color: $base2;
+}
+.tab__text:hover {
+	background-color: $brown;
+	color: $white;
+	transition: 0.3s;
+}
+
+.tab__text a {
+	display: inline-block;
+	font-family: $jp-font-family1;
+	font-size: my-rem(14);
+	font-weight: $normal;
+	width: 100%;
+}
+
+.tab__text--green {
+	text-transform: uppercase;
+	background-color: $brown;
+}
+.tab__text--green a {
+	color: $white;
+}
+/*//////////////////////////////////////
+デフォルトでbackground-colorを入れる
+/////////////////////////////////////*/
+.current-cat {
+	background-color: $brown;
+	color: $white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: my-rem(14);
+}
+/*//////////////////////////////////////
+終了
+/////////////////////////////////////*/

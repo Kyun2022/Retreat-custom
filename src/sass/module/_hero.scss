@@ -1,0 +1,64 @@
+@use 'global' as *;
+
+.hero {
+	position: relative;
+	height: my-rem(460);
+
+	@include mq(md) {
+		height: my-rem(548);
+	}
+}
+
+.hero picture {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.hero source,
+.hero img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.hero__title {
+	position: absolute;
+	bottom: 2%;
+	right: 2%;
+	@include mq(md) {
+		bottom: 5%;
+		right: 5%;
+	}
+}
+
+.hero__title::first-letter {
+	text-transform: capitalize;
+}
+
+.hero__title--uppercase {
+	text-transform: uppercase;
+}
+
+.hero__title-text {
+	color: $white;
+	font-family: $en-font-family1;
+	font-weight: $bold;
+	font-size: my-rem(50);
+	text-shadow: 0 0 my-rem(8) rgba(0, 0, 0, 1.8);
+
+	@include mq(md) {
+		font-size: my-rem(90);
+		line-height: calc(100 / 90);
+	}
+}
+
+.hero__title-text--big {
+	text-transform: uppercase;
+}
+
+.hero__title-text--capitalize {
+	text-transform: capitalize;
+}

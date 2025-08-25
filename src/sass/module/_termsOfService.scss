@@ -1,0 +1,55 @@
+@use "global"as *;
+
+.termsOfService__title {
+  color: $dark-green;
+  font-family: $jp-font-family1;
+  font-size: my-rem(24);
+  font-weight: $medium;
+
+  @include mq(md) {
+    font-size: my-rem(32);
+  }
+}
+
+.termsOfService__main-container {
+  margin-top: my-rem(37);
+
+  @include mq(md) {
+    margin-top: my-rem(37);
+  }
+}
+
+.termsOfService__main-container p,
+.termsOfService__main-container ol,
+.termsOfService__main-container li,
+.termsOfService__main-container ul {
+  color: $dark-green;
+  font-family: $jp-font-family1;
+  font-size: my-rem(16);
+  font-weight: $normal;
+  line-height: calc(32 / 16);
+}
+
+.termsOfService__container p:last-child {
+  margin-top: my-rem(32);
+}
+
+.termsOfService__main-container div {
+  margin-top: my-rem(31);
+}
+
+.termsOfService__main-container ol {
+  list-style-type: decimal;
+  padding-left: my-rem(23);
+  margin-top: initial;
+}
+
+.termsOfService__main-container ol {
+  margin-top: my-rem(31);
+}
+
+
+
+em {
+  font-style: normal;
+}

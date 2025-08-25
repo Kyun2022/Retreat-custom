@@ -1,0 +1,219 @@
+@use 'global' as *;
+
+.contact {
+	position: relative;
+	padding: my-rem(54) 0 my-rem(105);
+	@include mq(md) {
+		padding: my-rem(140) 0 my-rem(160);
+	}
+}
+.contact--campaign,
+.contact--info,
+.contact--blog,
+.contact--price,
+.contact--faq {
+	margin-top: my-rem(26);
+	padding-bottom: my-rem(102);
+	@include mq(md) {
+		margin-top: initial;
+		padding-bottom: my-rem(160);
+	}
+}
+.contact--siteMap {
+	margin-top: my-rem(34);
+	padding-bottom: my-rem(102);
+	@include mq(md) {
+		margin-top: initial;
+		padding-bottom: my-rem(160);
+	}
+}
+.contact--privacyPolicy {
+	margin-top: my-rem(29);
+	padding-bottom: my-rem(102);
+	@include mq(md) {
+		margin-top: my-rem(34);
+		padding-bottom: my-rem(160);
+	}
+}
+
+.contact--termsOfService {
+	margin-top: my-rem(29);
+	padding-bottom: my-rem(102);
+	@include mq(md) {
+		margin-top: initial;
+		padding-bottom: my-rem(160);
+	}
+}
+.contact--blog-detail {
+	margin-top: my-rem(40);
+	padding-bottom: my-rem(102);
+	@include mq(md) {
+		margin-top: initial;
+		padding-bottom: my-rem(160);
+	}
+}
+.contact--aboutUs {
+	margin-top: my-rem(26);
+	padding-bottom: my-rem(102);
+	@include mq(md) {
+		margin-top: initial;
+	}
+}
+.contact__decoration {
+	position: absolute;
+	top: my-rem(54);
+	right: calc(50% - min(47.9166vw, 41.875rem));
+	width: my-rem(109);
+	height: my-rem(50);
+	z-index: 100;
+	@include mq(md) {
+		top: my-rem(98);
+		right: calc(
+			((100vw - my-rem(1440)) / 2 + my-rem(50)) -
+				min(my-rem(0), (100vw - my-rem(1405)) / 2)
+		);
+		width: my-rem(301);
+		height: my-rem(138);
+	}
+}
+.contact__inner {
+	max-width: my-rem(600);
+	width: 100%;
+}
+.contact__decoration img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.contact__container {
+	display: flex;
+	flex-direction: column;
+	background-color: $base2;
+	border-radius: my-rem(30);
+	padding-bottom: my-rem(50);
+
+	@include mq(md) {
+		flex-direction: row;
+		box-shadow: my-rem(4) my-rem(4) my-rem(10) rgba(0, 0, 0, 0.25);
+		padding: my-rem(80) my-rem(50) my-rem(80);
+	}
+}
+
+.contact__info {
+	padding: my-rem(26) my-rem(25) 0;
+	@include mq(md) {
+		padding-top: initial;
+		width: 100%;
+		max-width: calc((572 / 1080) * 100%);
+		padding-right: my-rem(82);
+		padding: my-rem(26) 0 0;
+	}
+}
+.contact__logo-block {
+	display: block;
+	padding-bottom: my-rem(6);
+	border-bottom: my-rem(1) solid $brown;
+}
+.contact__logo {
+	width: my-rem(174);
+	margin: 0 auto;
+	@include mq(md) {
+		width: my-rem(200);
+	}
+}
+.contact__logo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.contact__wrapper {
+	display: flex;
+	flex-direction: column-reverse;
+	margin-top: my-rem(16);
+	@include mq(md) {
+		margin-top: my-rem(24);
+		flex-direction: row-reverse;
+	}
+}
+
+.contact__items {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	@include mq(md) {
+		width: calc((150 / 419) * 100%);
+		align-items: initial;
+		justify-content: initial;
+	}
+}
+
+.contact__item {
+	font-size: trm(16);
+	font-family: $jp-font-family1;
+	font-weight: $regular;
+	line-height: calc(24 / 16);
+	padding-bottom: my-rem(4);
+}
+
+.contact__map {
+	margin-top: my-rem(10);
+	position: relative;
+	@include mq(md) {
+		margin-left: my-rem(21);
+		margin-top: initial;
+		width: calc((273 / 419) * 100%);
+	}
+}
+.contact__map::before {
+	content: '';
+	display: block;
+	padding-top: calc((160 / 295) * 100%);
+	@include mq(md) {
+		padding-top: calc((148 / 273) * 100%);
+	}
+}
+.contact__map iframe {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.contact__action {
+	margin-top: my-rem(41);
+	@include mq(md) {
+		padding-top: my-rem(20);
+		margin-top: initial;
+		width: 100%;
+		max-width: calc((508 / 1080) * 100%);
+		padding-left: my-rem(16);
+		border-left: my-rem(1) solid $brown;
+		text-align: center;
+	}
+}
+
+/*//////////////////////////////////////
+.title.scssにも記載
+/////////////////////////////////////*/
+.title__emphasis {
+	font-size: my-rem(14);
+	font-family: $jp-font-family1;
+	font-weight: $regular;
+	color: $brown;
+	line-height: calc(18 / 14);
+	margin-top: my-rem(10);
+	@include mq(md) {
+		margin-top: my-rem(8);
+	}
+}
+.title__button {
+	margin-top: my-rem(40);
+}
+/*//////////////////////////////////////
+終了
+/////////////////////////////////////*/

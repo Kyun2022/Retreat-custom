@@ -1,0 +1,41 @@
+@use 'global' as *;
+
+.boxes__items {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: my-rem(41);
+	margin: 0 auto;
+
+	@include mq(md) {
+		grid-template-columns: repeat(2, 1fr);
+		width: initial;
+		max-width: initial;
+	}
+}
+.boxes__items.boxes__items--sub {
+	gap: my-rem(40);
+	@include mq(md) {
+		row-gap: my-rem(80);
+	}
+}
+
+.boxes__item {
+	padding: my-rem(15) my-rem(16) my-rem(24);
+	box-shadow: my-rem(2) my-rem(2) my-rem(10) rgba(0, 0, 0, 0.25);
+	border-radius: my-rem(20);
+	background-color: $base2;
+
+	@include mq(md) {
+		padding: my-rem(20) my-rem(25) my-rem(24);
+	}
+}
+.boxes__item.boxes__item--sub {
+	margin-top: my-rem(24);
+	border-radius: 0;
+	box-shadow: initial;
+	padding: initial;
+}
+.boxes__item a:hover {
+	opacity: 0.5;
+	transition: 0.3s;
+}

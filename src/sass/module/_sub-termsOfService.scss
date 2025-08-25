@@ -1,0 +1,30 @@
+@use "global" as *;
+
+.sub-termsOfService {
+  position: relative;
+}
+
+.sub-termsOfService__decoration {
+  position: absolute;
+  top: my-rem(-25);
+  left: my-rem(15);
+  width: my-rem(120);
+  height: my-rem(55);
+  z-index: -1;
+  @include mq(md) {
+    top: my-rem(-71);
+    width: my-rem(301);
+    height: my-rem(138);
+    left: calc(
+      ((100vw - my-rem(1440)) / 2 + my-rem(98)) - min(my-rem(0), (100vw - my-rem(1293)) / 2)
+    );
+  }
+}
+
+.sub-termsOfService__inner.inner {
+  width: 100%;
+  max-width: my-rem(730);
+  @include mq(md) {
+    max-width: my-rem(850);
+  }
+}

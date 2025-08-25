@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.top-campaign {
+  margin-top: my-rem(40);
+
+  @include mq(md) {
+    margin-top: my-rem(122);
+  }
+}

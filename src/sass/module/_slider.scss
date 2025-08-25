@@ -1,0 +1,375 @@
+@use 'global' as *;
+
+.slider__items {
+	display: grid;
+	grid-auto-flow: column;
+}
+
+.slider__item {
+	box-shadow: my-rem(2) my-rem(2) my-rem(10) rgba(0, 0, 0, 0.25);
+	display: flex;
+	flex-direction: column;
+	background-color: $base2;
+}
+
+.slider__item--sub:not(:first-child) {
+	margin-top: my-rem(40);
+}
+
+.slider__item a {
+	display: inherit;
+	flex-direction: inherit;
+	flex-grow: 1;
+}
+
+.slider__item a:hover {
+	opacity: 0.5;
+	transition: 0.3s;
+}
+
+.slider__image {
+	position: relative;
+}
+
+.slider__image::before {
+	content: '';
+	display: block;
+	padding-top: calc((188 / 280) * 100%);
+
+	@include mq(md) {
+		padding-top: calc((223 / 333) * 100%);
+	}
+}
+
+.slider__image.slider__image--sub::before {
+	padding-top: calc((188 / 294) * 100%);
+}
+
+.slider__image img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.slider__body {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	padding: my-rem(17) my-rem(16) my-rem(22);
+	background-color: $base2;
+
+	@include mq(md) {
+		padding: my-rem(23) my-rem(16) my-rem(40);
+	}
+}
+
+.slider__body.slider__body--layout {
+	margin-top: initial;
+	flex-grow: 1;
+	padding: my-rem(17) my-rem(16) my-rem(21);
+
+	@include mq(md) {
+		padding: my-rem(24) my-rem(24) my-rem(42);
+	}
+}
+
+.slider__body.slider__body--sub {
+	margin-top: initial;
+	padding: my-rem(17) my-rem(16) my-rem(21);
+
+	@include mq(md) {
+		padding: my-rem(16) my-rem(24) my-rem(23);
+	}
+}
+
+.slider__label {
+	display: inline-block;
+	width: fit-content;
+	padding: my-rem(3) my-rem(10);
+	border: my-rem(1) solid $brown;
+	font-family: $jp-font-family1;
+	font-weight: $regular;
+	font-size: my-rem(12);
+	line-height: calc(22 / 12);
+	color: $brown;
+
+	@include mq(md) {
+		padding: my-rem(5) my-rem(14);
+	}
+}
+
+.slider__title {
+	flex-grow: 1;
+	margin-top: my-rem(4);
+	font-size: my-rem(16);
+	font-family: $jp-font-family1;
+	font-weight: $medium;
+	line-height: calc(24 / 16);
+	padding-bottom: my-rem(7);
+	border-bottom: my-rem(1) solid $brown;
+}
+
+.slider__title--sub {
+	margin-top: initial;
+	text-align: center;
+}
+
+.slider__title.slider__title--layout {
+	@include mq(md) {
+		font-size: my-rem(24);
+		padding-bottom: my-rem(1);
+	}
+}
+
+.slider__meta {
+	display: flex;
+	flex-direction: column;
+	margin-top: my-rem(8);
+	padding: 0 my-rem(19);
+	text-align: center;
+
+	@include mq(md) {
+		margin-top: my-rem(16);
+	}
+}
+
+.slider__meta.slider__meta--sub {
+	margin-top: my-rem(8);
+}
+
+.slider__meta.slider__meta--layout {
+	@include mq(md) {
+		margin-top: my-rem(24);
+	}
+}
+
+.slider__sub-title {
+	font-family: $jp-font-family1;
+	font-weight: $regular;
+	font-size: my-rem(14);
+	line-height: calc(24 / 14);
+	color: $dark-green;
+
+	@include mq(md) {
+		font-size: my-rem(16);
+		line-height: calc(24 / 16);
+	}
+}
+
+.slider__price-unit {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	justify-content: center;
+	margin-top: my-rem(7);
+	gap: my-rem(10);
+
+	@include mq(md) {
+		margin-top: my-rem(10);
+		gap: my-rem(16);
+	}
+}
+
+.slider__price-unit.slider__price-unit--sub {
+	margin-top: my-rem(7);
+
+	@include mq(md) {
+		gap: my-rem(19);
+	}
+}
+
+.slider__price-unit.slider__price-unit--layout {
+	@include mq(md) {
+		margin-top: my-rem(7);
+		gap: my-rem(41);
+	}
+}
+
+.slider__old-price {
+	font-family: $en-font-family1;
+	font-size: my-rem(20);
+	font-weight: $bold;
+	color: $dark-green;
+	position: relative;
+	margin-top: my-rem(4);
+
+	@include mq(md) {
+		font-size: my-rem(20);
+		margin-top: initial;
+	}
+}
+
+.slider__old-price.slider__old-price--sub {
+	@include mq(md) {
+		font-size: my-rem(20);
+		margin-top: my-rem(5);
+	}
+}
+
+.slider__old-price.slider__old-price--layout {
+	@include mq(md) {
+		margin-top: my-rem(8);
+	}
+}
+
+.slider__old-price::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	display: inline-block;
+	background-color: $red;
+	width: 100%;
+	height: my-rem(3);
+}
+
+.slider__new-price {
+	font-family: $en-font-family1;
+	font-size: my-rem(38);
+	font-weight: $bold;
+	line-height: calc(32 / 28);
+	color: $brown;
+
+	@include mq(md) {
+		font-size: my-rem(32);
+	}
+}
+
+.slider__new-price.slider__new-price--sub {
+	@include mq(md) {
+		font-size: my-rem(32);
+	}
+}
+
+.slider__button {
+	display: flex;
+	position: absolute;
+	top: my-rem(3);
+	right: my-rem(25);
+}
+
+/* 前へ次への矢印カスタマイズ */
+.slider__prevButton,
+.slider__nextButton {
+	position: relative;
+	height: my-rem(80);
+	width: my-rem(80);
+	border: my-rem(1) solid $brown;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: $base2;
+}
+.slider__prevButton svg,
+.slider__nextButton svg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: $brown;
+	width: 90%;
+}
+
+.slider__prevButton--md-none,
+.slider__nextButton--md-none {
+	display: none;
+
+	@include mq('md') {
+		display: block;
+	}
+}
+
+.slider__prevButton {
+	margin-left: my-rem(80);
+}
+
+/* 前への矢印カスタマイズ */
+// .slider__nextButton:after {
+// 	position: absolute;
+// 	top: 45%;
+// 	left: 10%;
+// 	content: '';
+// 	display: inline-block;
+// 	width: my-rem(40);
+// 	height: my-rem(6);
+// 	transform: skew(-45deg);
+// 	border-bottom: my-rem(1) solid $brown;
+// 	border-left: my-rem(1) solid $brown;
+// }
+
+// /* 次への矢印カスタマイズ */
+// .slider__prevButton:after {
+// 	position: absolute;
+// 	top: 45%;
+// 	right: 10%;
+// 	content: '';
+// 	display: inline-block;
+// 	width: my-rem(40);
+// 	height: my-rem(6);
+// 	transform: skew(45deg);
+// 	border-bottom: my-rem(1) solid $brown;
+// 	border-right: my-rem(1) solid $brown;
+// }
+
+/*//////////////////////////////////////
+下層Campaign追加
+/////////////////////////////////////*/
+
+.slider__detail {
+	height: inherit;
+	display: flex;
+
+	@include mq(md) {
+		margin-top: my-rem(22);
+	}
+}
+
+.slider__text.text {
+	height: auto;
+	text-align: left;
+}
+
+.slider__detail--md-none {
+	display: none;
+
+	@include mq(md) {
+		display: block;
+	}
+}
+
+.slider__box {
+	margin-top: my-rem(32);
+	text-align: center;
+}
+
+.slider__date {
+	color: $brown;
+	font-family: $en-font-family1;
+	font-size: my-rem(16);
+	font-weight: $bold;
+	line-height: calc(18 / 16);
+}
+
+.slider__sub-text {
+	margin-top: my-rem(7);
+	color: $brown;
+	font-family: $jp-font-family1;
+	font-size: my-rem(14);
+	font-weight: $normal;
+	line-height: calc(18 / 14);
+}
+
+.slider__button-block {
+	margin-top: my-rem(15);
+}
+
+.slider__button-block button::first-letter {
+	text-transform: capitalize;
+}
+
+/*//////////////////////////////////////
+終了
+/////////////////////////////////////*/

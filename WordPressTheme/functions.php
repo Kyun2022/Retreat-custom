@@ -43,19 +43,19 @@ function my_script_init()
     array(),
     null
   );
-  // gsap
-  wp_enqueue_script('gsap1', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', "", "3.12.5", false);
-  // gsap
-  wp_enqueue_script('ScrollTrigger', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js', "", "3.12.5", false);
+  // gsap（本体）- CDNから最新版を読み込み
+  wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js', array(), "3.12.5", true);
+  // ScrollTrigger（GSAPに依存）- CDNから最新版を読み込み
+  wp_enqueue_script('scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js', array('gsap'), "3.12.5", true);
   // micromodal
-  wp_enqueue_script('micro-modal', 'https://unpkg.com/micromodal/dist/micromodal.min.js', "", "1.0.1", false);
+  wp_enqueue_script('micro-modal', 'https://unpkg.com/micromodal/dist/micromodal.min.js', array(), "1.0.1", true);
   // swiper
-  wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js', "", "9.0.0", true);
-  wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css', "", "9.0.0", 'all');
+  wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js', array(), "9.0.0", true);
+  wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css', array(), "9.0.0", 'all');
   // inview
-  wp_enqueue_script('main-js', get_theme_file_uri('/assets/js/jquery.inview.min.js?20230816'), ['jquery'], '1.0.1', true);
-  // 自作jsファイルの読み込み
-  wp_enqueue_script('main', get_theme_file_uri('/assets/js/script.js?20230816'), ['jquery'], '1.0.1', true);
+  wp_enqueue_script('main-js', get_theme_file_uri('/assets/js/jquery.inview.min.js?20230816'), array('jquery'), '1.0.1', true);
+  // 自作jsファイルの読み込み（全ての依存関係を含む）
+  wp_enqueue_script('main', get_theme_file_uri('/assets/js/script.js?20230816'), array('jquery', 'gsap', 'scrolltrigger'), '1.0.1', true);
   // 自作cssファイルの読み込み
   wp_enqueue_style('style-css', get_theme_file_uri('assets/css/style.css?20230816'), '1.0.1', false);
 }
@@ -115,6 +115,100 @@ function Change_objectlabel()
 }
 add_action('init', 'Change_objectlabel');
 add_action('admin_menu', 'Change_menulabel');
+
+/* --------------------------------------------
+ /* カスタム投稿タイプ
+ /* -------------------------------------------- */
+function create_custom_post_types() {
+    // Campaign カスタム投稿タイプ
+    register_post_type('campaign',
+        array(
+            'labels' => array(
+                'name' => 'キャンペーン',
+                'singular_name' => 'キャンペーン',
+                'add_new' => 'キャンペーンを追加',
+                'add_new_item' => '新しいキャンペーンを追加',
+                'edit_item' => 'キャンペーンを編集',
+                'new_item' => '新しいキャンペーン',
+                'view_item' => 'キャンペーンを見る',
+                'search_items' => 'キャンペーンを探す',
+                'not_found' => 'キャンペーンが見つかりません',
+                'not_found_in_trash' => 'ゴミ箱にキャンペーンが見つかりません',
+                'parent_item_colon' => ''
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_position' => 5,
+            'supports' => array('title','editor','thumbnail','excerpt','custom-fields')
+        )
+    );
+    
+    // Voice カスタム投稿タイプ
+    register_post_type('voice',
+        array(
+            'labels' => array(
+                'name' => 'お客様の声',
+                'singular_name' => 'お客様の声',
+                'add_new' => 'お客様の声を追加',
+                'add_new_item' => '新しいお客様の声を追加',
+                'edit_item' => 'お客様の声を編集',
+                'new_item' => '新しいお客様の声',
+                'view_item' => 'お客様の声を見る',
+                'search_items' => 'お客様の声を探す',
+                'not_found' => 'お客様の声が見つかりません',
+                'not_found_in_trash' => 'ゴミ箱にお客様の声が見つかりません',
+                'parent_item_colon' => ''
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_position' => 6,
+            'supports' => array('title','editor','thumbnail','excerpt','custom-fields')
+        )
+    );
+    
+    // Campaign カテゴリー
+    register_taxonomy('campaign_category', 'campaign', array(
+        'hierarchical' => true,
+        'labels' => array(
+            'name' => 'キャンペーンカテゴリー',
+            'singular_name' => 'キャンペーンカテゴリー',
+            'search_items' => 'キャンペーンカテゴリーを探す',
+            'all_items' => 'すべてのキャンペーンカテゴリー',
+            'parent_item' => '親キャンペーンカテゴリー',
+            'parent_item_colon' => '親キャンペーンカテゴリー:',
+            'edit_item' => 'キャンペーンカテゴリーを編集',
+            'update_item' => 'キャンペーンカテゴリーを更新',
+            'add_new_item' => '新しいキャンペーンカテゴリーを追加',
+            'new_item_name' => '新しいキャンペーンカテゴリー名',
+            'menu_name' => 'キャンペーンカテゴリー',
+        ),
+        'show_ui' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'campaign-category'),
+    ));
+    
+    // Voice カテゴリー
+    register_taxonomy('voice_category', 'voice', array(
+        'hierarchical' => true,
+        'labels' => array(
+            'name' => 'お客様の声カテゴリー',
+            'singular_name' => 'お客様の声カテゴリー',
+            'search_items' => 'お客様の声カテゴリーを探す',
+            'all_items' => 'すべてのお客様の声カテゴリー',
+            'parent_item' => '親お客様の声カテゴリー',
+            'parent_item_colon' => '親お客様の声カテゴリー:',
+            'edit_item' => 'お客様の声カテゴリーを編集',
+            'update_item' => 'お客様の声カテゴリーを更新',
+            'add_new_item' => '新しいお客様の声カテゴリーを追加',
+            'new_item_name' => '新しいお客様の声カテゴリー名',
+            'menu_name' => 'お客様の声カテゴリー',
+        ),
+        'show_ui' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'voice-category'),
+    ));
+}
+add_action('init', 'create_custom_post_types');
 
 
 /* --------------------------------------------

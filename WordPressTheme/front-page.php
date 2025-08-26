@@ -130,8 +130,9 @@
     </div>
   </section>
 
+
   <!-- aboutUs -->
-  <section class="aboutUs top-aboutUs">
+  <section class="aboutUs top-aboutUs ">
     <div class="aboutUs__inner inner">
       <div class="aboutUs__title title title--center">
         <p class="title__text">about&nbsp;us</p>
@@ -169,7 +170,7 @@
   </section>
 
   <!-- information -->
-  <section class="information top-information">
+  <section class="information top-information ">
     <div class="information__inner inner">
       <div class="information__title title title--center">
         <p class="title__text">information</p>
@@ -197,7 +198,7 @@
   </section>
 
   <!-- blog -->
-  <section class="blog top-blog">
+  <section class="blog top-blog ">
     <div class="blog__bgImage blog__bgImage--md-none"><img
         src="<?php echo get_theme_file_uri(); ?>/assets/images/common/forest.webp" alt="キャンプサイト内の森林の様子"></div>
     <figure class="blog__decoration blog__decoration--md-none"><img
@@ -267,7 +268,7 @@
   </section>
 
   <!-- voice -->
-  <section class="voice top-voice">
+  <section class="voice top-voice ">
     <figure class="voice__top-decoration voice__top-decoration--md-none"><img
         src="<?php echo get_theme_file_uri(); ?>/assets/images/common/bird.webp" alt="鳥の群れが飛んでいる様子"></figure>
     <div class="voice__inner inner">
@@ -352,7 +353,7 @@
   </section>
 
   <!-- price -->
-  <section class="price top-price">
+  <section class="price top-price ">
     <div class="price__inner inner">
       <div class="prive__title title title--center">
         <p class="title__text">price</p>
@@ -462,5 +463,6 @@
     <figure class="price__decoration price__decoration--md-none"><img
         src="<?php echo get_theme_file_uri(); ?>/assets/images/common/bird.webp" alt="鳥の群れが飛んでいる様子"></figure>
   </section>
+
 
   <?php get_footer();  ?>

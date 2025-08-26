@@ -37,6 +37,8 @@
 	text-indent: 0.54em;
 	color: $white;
 	line-height: calc((48 / 38) * 100%);
+	opacity: 0;
+	visibility: hidden;
 	@include mq(md) {
 		letter-spacing: 0.54em;
 		font-size: my-rem(80);
@@ -49,4 +51,6 @@
 	font-weight: $medium;
 	color: $white;
 	line-height: calc((33 / 20) * 100%);
+	opacity: 0;
+	visibility: hidden;
 }

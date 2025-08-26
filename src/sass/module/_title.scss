@@ -8,6 +8,11 @@
 	font-weight: $bold;
 	font-family: $en-font-family1;
 	line-height: calc(40 / 32);
+	opacity: 0;
+	visibility: hidden;
+	border: none !important;
+	border-right: none !important;
+	padding-right: 0 !important;
 	@include mq(md) {
 		font-size: my-rem(40);
 		line-height: 1;
@@ -16,6 +21,10 @@
 .title__text::first-letter {
 	text-transform: capitalize;
 	color: $brown;
+}
+.title__text::after {
+	content: none !important;
+	border: none !important;
 }
 
 .title--center {
@@ -54,9 +63,18 @@
 	line-height: calc(18 / 12);
 	color: $brown;
 	margin-top: my-rem(4);
+	opacity: 0;
+	visibility: hidden;
+	border: none !important;
+	border-right: none !important;
+	padding-right: 0 !important;
 	@include mq(md) {
 		margin-top: my-rem(7);
 	}
+}
+.title__sub-text::after {
+	content: none !important;
+	border: none !important;
 }
 .title__sub-text--white {
 	@include mq(md) {
